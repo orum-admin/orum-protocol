@@ -1,0 +1,26 @@
+dotenv: .env
+
+wallet:
+  from_key: ${PRIVATE_KEY}
+  proxy_oracle: ${ORACLE_PRIVATE_KEY}
+networks:
+  default: ganache-local
+  rinkeby: 
+    # https://rinkeby.infura.io/v3/4a0d4077ef524f1386e8e77d2d570026
+  development:
+    verify: False
+    cmd_settings:
+      accounts: 60
+  ganache-local:
+    verify: False
+
+dependencies:
+  - OpenZeppelin/openzeppelin-contracts@4.4.1
+  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+
+compiler:
+  solc:
+    version: 0.8.0
+    remappings:
+      - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.4.1"
+      - "@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1"
